@@ -1,1 +1,1 @@
-from . import start, pingall
+from . import start, pingall, pinginfo
