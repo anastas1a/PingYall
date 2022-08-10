@@ -1,3 +1,4 @@
 poetry.lock
 **/__pycache__
-config.py 
+config.py
+stuff

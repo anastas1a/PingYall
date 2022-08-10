@@ -1,7 +1,17 @@
-from aiogram import executor
-from misc import dp 
+from misc import dp, app
 
 import handlers
 
 
-executor.start_polling(dp)
+async def start_up():
+    async with app:
+        await dp.start_polling()
+
+
+def cli():
+    try:
+        app.run(start_up())
+    except:
+        ...
+
+cli()
