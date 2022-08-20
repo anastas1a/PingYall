@@ -1,3 +1,5 @@
 
 TOKEN = ""
 
+
+USERS_CHUNK_SIZE = 5
