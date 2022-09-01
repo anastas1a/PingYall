@@ -7,8 +7,8 @@ authors = ["anastas1a"]
 [tool.poetry.dependencies]
 python = "^3.9"
 aiogram = "^2.21"
-Pyrogram = "^2.0.35"
 TgCrypto = "^1.2.3"
+Telethon = "1.24"
 
 [tool.poetry.dev-dependencies]
 
