@@ -21,7 +21,7 @@ async def pingall_cmd(message: types.Message):
             "Цією командою можуть користуватися лише адміністратори!"
         )
 
-    members_chunk = await get_members(message.chat.id, lambda member: not (member.is_bot or member.is_deleted), chunk=5)
+    members_chunk = await get_members(message.chat.id, lambda member: not (member.user.is_bot or member.user.is_deleted), chunk=5)
 
     generate = not bool(arg)
     for members in members_chunk:
