@@ -3,7 +3,7 @@ from pyrogram import types
 
 import random
 from misc import dp
-from utils import get_user_tag_list, get_user_online_tag_list
+from utils import get_members
 
 EMOJI_LIST = ["🇺🇦", "🔵", "🟡", "💛", "💙", "🟨", "🟦"]
 
@@ -21,14 +21,14 @@ async def pingall_cmd(message: types.Message):
             "Цією командою можуть користуватися лише адміністратори!"
         )
 
-    users_tag_list = await get_user_tag_list(message.chat.id)
+    members_chunk = await get_members(message.chat.id, lambda member: not (member.is_bot or member.is_deleted), chunk=5)
 
     generate = not bool(arg)
-    for users in users_tag_list:
+    for members in members_chunk:
         if generate:
-            arg = ''.join(random.sample(EMOJI_LIST, len(users)))
+            arg = ''.join(random.sample(EMOJI_LIST, len(members)))
 
         await message.answer(
-            arg +  "".join(users)
+            arg +  "".join([f"<a href='tg://user?id={member.user.id}'>\u2060</a>" for member in members])
         )
         

@@ -1,1 +1,1 @@
-from . import start, help, pingall
+from . import start, help, pingall, kick
